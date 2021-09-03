@@ -2,19 +2,43 @@
 #include<vector>
 using namespace std;
 void moveZeros(vector<int> &nums){
+
+    // Method 1
+    // int n = nums.size();
+    // for(int i = 0 ; i< n;i++){
+    //     if(nums[i] == 0){
+    //         for(int j = i+1; j< n ;j++){
+    //             if(nums[j] != 0){
+    //                 int val = nums[j];
+    //                 nums[j] = 0;
+    //                 nums[i] = val;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
+    // for(int i = 0 ; i<n; i++){
+    //     cout<<nums[i]<<" ";
+    // }
+    // cout<<endl;
+
+    // Method 2 
     int n = nums.size();
-    for(int i = 0 ; i< n;i++){
-        if(nums[i] == 0){
-            for(int j = i+1; j< n ;j++){
-                if(nums[j] != 0){
-                    int val = nums[j];
-                    nums[j] = 0;
-                    nums[i] = val;
-                    break;
-                }
-            }
+    int i = 0 ;
+    int j = 0;
+    while (i < n)
+    {
+        if (nums[i] != 0)
+        {
+            nums[j++] = nums[i];
         }
+        i++;
     }
+    while (j < n)
+    {
+        nums[j++] = 0;
+    }
+    
     for(int i = 0 ; i<n; i++){
         cout<<nums[i]<<" ";
     }
